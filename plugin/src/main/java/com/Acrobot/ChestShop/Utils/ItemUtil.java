@@ -79,7 +79,7 @@ public class ItemUtil {
             ItemParseEvent parseEvent = new ItemParseEvent(code);
             Bukkit.getPluginManager().callEvent(parseEvent);
             ItemStack codeItem = parseEvent.getItem();
-            if (!MaterialUtil.equals(itemStack, codeItem)) {
+            if (!itemStack.getType().equals(codeItem.getType())) {
                 throw new IllegalArgumentException("Cannot generate code for item " + itemStack
                         + " with maximum length of " + maxWidth
                         + " (code " + code + " results in item " + codeItem + ")");
